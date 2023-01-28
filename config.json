@@ -2,7 +2,7 @@
     "column": {
         "actualName": "Name",
         "displayName": "Display Name",
-        "year": "ID",
+        "year": "Year",
         "major": "Major",
         "caption": "Doorcard Caption"
     },

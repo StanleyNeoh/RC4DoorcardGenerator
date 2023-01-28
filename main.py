@@ -67,6 +67,8 @@ def CreateDoorcard(name, data_dict):
 if __name__ == "__main__":
     df = pd.read_excel(ExcelLocation)
     PrimePics()
+    total = len(df)
+    success = 0
     for i, row in df.iterrows():
         try:
             CreateDoorcard(
@@ -78,5 +80,7 @@ if __name__ == "__main__":
                     "Caption": row[CaptionCol]
                 }
             )
+            success += 1
         except Exception as e:
             print("Error at {0}:".format(row[NameCol]), e)
+    print("Creation completed: ", success, "/", total)
