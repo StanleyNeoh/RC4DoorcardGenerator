@@ -1,0 +1,16 @@
+{
+    "column": {
+        "actualName": "Name",
+        "displayName": "Display Name",
+        "year": "ID",
+        "major": "Major",
+        "caption": "Doorcard Caption"
+    },
+    "location": {
+        "excel": "doorcards.xlsx",
+        "template": "./templates/URSA_Door_card.pptx",
+        "font": "./font/DINCondensed-Regular.ttf",
+        "photo": "./doorcard_photos",
+        "target": "./doorcards_pptx"
+    }
+}

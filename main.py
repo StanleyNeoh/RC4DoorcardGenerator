@@ -1,23 +1,26 @@
 import pandas as pd
 import re
 import os
+import json
 from PIL import Image
 from logging import PlaceHolder
 from pptx import Presentation
 from pptx.util import Pt
 
-NameCol = 'Name'
-DisplayCol = 'Name (to be displayed on doorcard)'
-YearCol = 'Year'
-MajorCol = 'Major'
-CaptionCol = 'Doorcard Caption'
-ExcelLocation = './doorcards.xlsx'
+with open("config.json") as json_file:
+    data = json.load(json_file)
 
-TemplateLocation = './templates/URSA_Door_card.pptx'
-FontLocation = './font/DINCondensed-Regular.ttf'
+    NameCol = data["column"]['actualName']
+    DisplayCol = data["column"]['displayName']
+    YearCol = data["column"]['year']
+    MajorCol = data["column"]['major']
+    CaptionCol = data["column"]['caption']
 
-PhotoLocation = './doorcard_photos'
-PptxDestination = './doorcards_pptx'
+    ExcelLocation = data["location"]["excel"]
+    TemplateLocation = data["location"]["template"]
+    FontLocation = data["location"]["font"]
+    PhotoLocation = data["location"]["photo"]
+    PptxDestination = data["location"]["target"]
 
 def ProcessField(s):
     return re.sub(r'(?<!\w)and(?!\w)',"&", s).upper()
@@ -70,7 +73,7 @@ if __name__ == "__main__":
                 row[NameCol], 
                 {
                     "Name": row[DisplayCol], 
-                    "Year": "1", #row[YearCol], 
+                    "Year": row[YearCol], 
                     "Major": row[MajorCol], 
                     "Caption": row[CaptionCol]
                 }

@@ -29,8 +29,10 @@ Generates Doorcards from a power point template.
 
 ## Installation and setup
 1. clone repo and cd into folder
-2. Adjust the default fields accordingly.
-3. Open process.ipynb and run all
+1. setup [virtual environment](https://docs.python.org/3/library/venv.html)
+1. run `pip install -r requirements.txt`
+1. Modify config.json accordingly
+1. Run main.py
 
 ## Template Designing
 1. Open a new powerpoint in the templates folder and open View > Slide Master
